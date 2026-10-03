@@ -1,0 +1,21 @@
+{
+  "status": "verified-on-chain",
+  "chainId": 4663,
+  "verifiedAtBlock": 52763459,
+  "sourceCommit": "7cedbaa12de47b5b5f66a8653ce927153ea8a04a",
+  "deployer": "0x74ebAf3089e6BB956F1A1f5cD858D61d3e03243C",
+  "publisher": "0x89A7c0AB6de652d801Cce3289b495BbCE0986d0E",
+  "distributorPublisher": "0x6741f4b22E5519450e3C8f2cd7C94119Dfe14EAE",
+  "attestationRegistry": "0x440135d2BA80A67B4acCB1fC4b7A71eE1Aec465d",
+  "warrant": "0xadAe8CE806F0426A8c707Af89E5a3097582d85eB",
+  "merkleDistributor": "0xccb0D0ED1be992178F03309fCb409fD84FD423a6",
+  "clearingPool": "0xCFA9Ca09eDDcD8EFbfc4323e8bf30BA205101F3A",
+  "warrantVaultFactory": "0xc8F9605EFb778Fe05A5a530269D7F3c587ea8c26",
+  "warrantLauncher": "0x53633335AF68Eaf718Cbcc03F2E10D678F1165af",
+  "pendingLauncherSlot": "0x5A6D9427dF6009ab985834AE5f9faC9Ed9D6b445",
+  "vaultRegistry": "0xce2f48514b2C615Efd648528d5D1CfeA532c544B",
+  "flapPortal": "0x26605f322f7fF986f381bB9A6e3f5DAb0bEaEb09",
+  "commissionReceiver": "0x620Af09AaF17c1a0197869329741cFe13aeB54f3",
+  "attestationV0TermsHash": "0x918ec44c764a8a830c3cf13f8a67b5cca430cd5866d3bfefa7e25390129e29ab",
+  "attestationV0AttestationHash": "0xe760c38dcca7cc6cb2e151e2c91521f89890ce053d6cbfd1f0319ff88045bd64"
+}

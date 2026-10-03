@@ -1,0 +1,23 @@
+# Local secrets and source indexing
+.env
+.env.*
+!.env.example
+.codegraph/
+.context/
+
+# Reproducible Foundry build output and transaction traces
+cache/
+out/
+broadcast/
+
+# Unpromoted deployment plans and local rehearsal output
+deployments/*.planned.json
+deployments/31337.json
+deployments/31338.json
+deployments/rehearsal.json
+deployments/.tmp.*
+
+# Editor and host artifacts
+.DS_Store
+*.log
+__pycache__/

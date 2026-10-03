@@ -1,0 +1,80 @@
+# Foundry 配置 —— https://getfoundry.sh/config/reference/
+#
+# 编译器与 EVM 版本在此**钉死**：靠 solc 自动探测会让"本地过、CI 不过"这类问题晚很多才暴露。
+
+[profile.default]
+src = "src"
+test = "test"
+script = "script"
+out = "out"
+libs = ["lib"]
+
+solc = "0.8.30"
+# cancun 而不是更新的 prague/osaka：按目标链**实测支持到哪**来定，不取工具链的上限。
+#
+# 已在 Robinhood Chain 实测（eth_call + state override 注入探针字节码）：
+#   MCOPY(0x5e) ✅   TSTORE/TLOAD(0x5d/0x5c) ✅
+# 复算命令见 README「EVM 版本」。OpenZeppelin v5.7 的 Arrays.sol 直接写了 mcopy，
+# 因此 cancun 也是依赖侧的下限 —— shanghai 编不过。
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+# 清算池不可升级，字节码要能被第三方逐字复现 —— 去掉 metadata hash 里的路径依赖
+bytecode_hash = "none"
+
+# 前两条只读，第三条是**唯一**的可写目录：
+#   legal/        version 0 的两段文本。哈希从文件现算，而不是抄在代码里，
+#                 所以文本与哈希不可能漂移。见 legal/attestation-v0/README.md。
+#   out/          编译产物。用来枚举合约的对外可写函数集，证明「没有别的写入口」——
+#                 这是不变量 5 / 6 那类「证明某个开关不存在」的断言唯一非循环的做法：
+#                 自己列举一遍自己调用过的函数，证明不了什么。
+#   deployments/  M1-3（issue #8）的四合约部署脚本落盘的地址清单，供后续里程碑与核验使用。
+#                 🔴 只开这一个目录，而不是把上面两条改成读写 —— 部署脚本能写的地方越窄，
+#                 「跑一遍脚本」这件事就越不需要先读一遍脚本。
+fs_permissions = [
+    {access = "read", path = "./legal"},
+    {access = "read", path = "./out"},
+    {access = "read-write", path = "./deployments"},
+]
+
+[profile.default.fuzz]
+runs = 256
+
+# M1 交付七条不变量（issue #5）。预算放在这里，测试文件里不再各自 override。
+[profile.default.invariant]
+runs = 256
+depth = 64
+fail_on_revert = false
+
+[profile.ci.fuzz]
+runs = 5000
+
+[profile.ci.invariant]
+runs = 1000
+depth = 128
+fail_on_revert = false
+
+[fmt]
+# 🔴 `src/flap/` 是 Flap 官方基类的**逐字节副本**，格式化会改动字节 ——
+# 而「与上游逐字节一致」正是这几个文件存在的唯一理由（见 src/flap/README.md，
+# 由 script/flap-vault-spec-check.sh 按 sha256 核验）。
+ignore = ["src/flap/*.sol", "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol"]
+line_length = 120
+tab_width = 4
+bracket_spacing = false
+int_types = "long"
+quote_style = "double"
+number_underscore = "thousands"
+wrap_comments = false
+
+# 供 `forge script --rpc-url robinhood` / `cast --rpc-url robinhood` 使用。
+# 分叉测试**不**走这里 —— 它们从环境变量读，见 test/fork/ForkConfig.sol。
+#
+# ⚠️ 这个别名**只认单个端点**，因此继续只读历史单值变量 `RPC_ROBINHOOD`。分叉测试的显式多端点
+#    变量是 `RPC_ROBINHOOD_LIST`（ASCII 空白分隔，按优先级逐个试）；只配列表时，部署与 cast 显式传 URL。
+[rpc_endpoints]
+robinhood = "${RPC_ROBINHOOD}"
+# fork-node.sh selects and probes RPC_ROBINHOOD(_LIST), then exposes only this
+# credential-free alias in child argv. Foundry expands the selected URL from
+# the child's environment without writing it to this file.
+fork_node_archive = "${FORK_NODE_RPC_URL}"

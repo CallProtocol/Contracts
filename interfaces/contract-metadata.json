@@ -1,0 +1,188 @@
+{
+  "abiSha256": {
+    "abi/AttestationRegistry.json": "2787a22f7a9cd4e1165266c0ad60a5b52309b74a94a4f43b6e6d8f495c2766da",
+    "abi/ClearingPool.json": "d5780e382e29d205cae4084db014d4ebf04516c344e330a057888044613987cd",
+    "abi/IVaultPortal.json": "449ac02693acf3f1cc31c5b8df7270f9a818598d4b93b24c545582cb20ffd7fa",
+    "abi/MerkleDistributor.json": "0380afd0fc6ccc9bbc0f7212ad5bfe004c33cd7c1a1571e86135217fb367c24c",
+    "abi/VaultRegistry.json": "18445e9d4419365f681e09b086cacb8159b9afd9411b5eeec6ce7b2ef75e5728",
+    "abi/Warrant.json": "c7b15d7118a6add1d7e26aae4f80e6265b4c4df815568b3ab4673587b53ff258",
+    "abi/WarrantTriggerAdapter.json": "a163733e1c03f6fd334f3a9e80bdaca157b94cb16bf5153463c99030322e514c",
+    "abi/WarrantVault.json": "1443a6622118a82f8df632102b2570ef244b8492810e24557990cd1917b10b14",
+    "abi/WarrantVaultDeployer.json": "81300a6c4e2e715a341ce658a41b19996f76b7c067e4f938342d8ee86f9e0c94",
+    "abi/WarrantVaultFactory.json": "ec3da493db1c4a2c50b93d9abfaf54ba98e6e1c295ff393bee17b39ec5207e46"
+  },
+  "compiler": "0.8.30",
+  "evmVersion": "cancun",
+  "keeperPolicy": {
+    "constants": {
+      "BPS_DENOMINATOR": 10000,
+      "CREATOR_FEE_BPS": 1000,
+      "EXPIRY_OFFSET": 162000,
+      "EXPIRY_PERIOD": 604800,
+      "MAX_SAMPLE_AGE": 7200,
+      "MAX_SAMPLE_GAP": 3900,
+      "MAX_TWAP_WINDOW": 108000,
+      "MIN_SERIES_LIFETIME": 604800,
+      "MIN_TWAP_WINDOW": 86400,
+      "OPEN_WINDOW": 86400,
+      "PROTOCOL_FEE_BPS": 1000,
+      "QUOTE_BALANCE_GAS": 200000,
+      "SAMPLE_INTERVAL": 3600,
+      "SAMPLE_JITTER": 300,
+      "STRIKE_BPS": 8000,
+      "TWAP_SAMPLES": 24
+    },
+    "eventTopics": {
+      "CreatorFeeAccrued": "0x62fcec0dc41f09cf5c57fdd947ab6e0807c151b17292d98431c3294a7eed4be9",
+      "CreatorFeeClaimed": "0x4f92ddf6ce836a965caa7f2627f07726ada3bdc07abafe4f7a07af8a81eb0de3",
+      "CreatorFeeImpaired": "0x3970c274bda586fe1199558763e497a839dd5c8553056ec09ea5c5ddbf9cf953",
+      "EmergencyWithdrawNative": "0x0edb8e2e2ee5c951b06e95cb63d5dcd8709eb0b74b0f05a948c213e1a557cc42",
+      "EmergencyWithdrawToken": "0xda0612d7ca9ff90ca7143a6021ba8938994f8d045b2834ae585fd07b27ea697c",
+      "ProtocolFeeAccrued": "0xa7d3ed4c08f0a22ed87b5588418154edb430223dc6ecf5acdf1654acac9fbba3",
+      "ProtocolFeeClaimed": "0x366e23e28fff888e643f546bb54722d6a9a85e25dfca8b0efa5e2db6114a3804",
+      "ProtocolFeeImpaired": "0xa6cfd66da05f35358c6082bf0d3b08fdecdb5fe400bb66a531f8d461e4941ad0",
+      "QuoteBalanceUnreadable": "0x4f5827b2e6b0188fc8434869de38dff1ec377098c36ec9cfc8a77149bbbba0c8",
+      "RevenueDeferred": "0xcc1221e7c0d998e7668485e3f8437064b17bcf1a6c69750f477bbb2a6f3b6a72",
+      "RevenueDeposited": "0x271447a7fc6bd5726818ce06a9d9ffdecd61963481f678d3903cc5bacc523c86",
+      "RevenueRecognized": "0x230e0a3c01b799cff5cf2de5940bd9dcd423d05c1d029e8bd8f5db802da8a6fe",
+      "TwapSampleFailed": "0xe9fd0e1ceb31344d322155c6dda246c177044b843e22960732bcd768b084b40b",
+      "TwapSampled": "0xe70387a245a68bf40531c0cc3022c397132197bf24774fc0169bd4ffcd6d7d87",
+      "VaultInitialized": "0x3a72e8ae02f203cb5415fd3bfacaad88fa2923e8b6210e8c033253cea65b605b",
+      "WeeklySeriesOpened": "0xc089c0b6228e75e8b0f60d77d9787d66335d24752d748fdcd6bc477ba512a7aa"
+    },
+    "statusCodes": {
+      "OPEN_ALREADY_OPEN": 1,
+      "OPEN_OK": 0,
+      "OPEN_STRIKE_ROUNDS_TO_ZERO": 4,
+      "OPEN_STRIKE_TOO_LARGE": 5,
+      "OPEN_TOO_EARLY": 2,
+      "OPEN_TWAP_UNAVAILABLE": 3,
+      "TWAP_OK": 0,
+      "TWAP_RING_NOT_FULL": 1,
+      "TWAP_SAMPLE_GAP": 5,
+      "TWAP_STALE": 2,
+      "TWAP_WINDOW_TOO_LONG": 4,
+      "TWAP_WINDOW_TOO_SHORT": 3
+    }
+  },
+  "schemaVersion": 1,
+  "sourceFiles": [
+    {
+      "path": "src/AttestationRegistry.sol",
+      "sha256": "667d01e42d0d4aaeadf79a563b9f91155b243d6cbe95338c8b9dae7ec1893ff8"
+    },
+    {
+      "path": "src/ClearingPool.sol",
+      "sha256": "4df0580fe8334b003e641e7bee5d095b15b4670f09eb36f2f61de59f458b1a4d"
+    },
+    {
+      "path": "src/MerkleDistributor.sol",
+      "sha256": "d5e8acb9ff0b2569aa6ba2c4520eebcd40088f9519510ca6f00912dab8937520"
+    },
+    {
+      "path": "src/PoolBound.sol",
+      "sha256": "c7cd1bf1f34a3d2f6d5228e2a110448e849b1ef7341abd7687e60ce0daef7307"
+    },
+    {
+      "path": "src/PriceSource.sol",
+      "sha256": "fb6c70203834dca2501f5897e08559464e55690e6bd3c49938e8344d86eb6e31"
+    },
+    {
+      "path": "src/VaultRegistry.sol",
+      "sha256": "9f3c98e3e7c28fc4c3768d75aa3e176d5bf5af69418db87c3e9d95e2778fd7d3"
+    },
+    {
+      "path": "src/Warrant.sol",
+      "sha256": "26767b69083d8e9a152c5f034aef0e687abdffaf869f1289862fb7f006abcf09"
+    },
+    {
+      "path": "src/WarrantTriggerAdapter.sol",
+      "sha256": "c81515dc624437a15eaea66f4b6a84dbf58673060252c83207d304840fc8c721"
+    },
+    {
+      "path": "src/WarrantVault.sol",
+      "sha256": "3e5a4ea68c8efcdd9ab223e4c1458fd05f218e36596e9867c7d2bdcdb0468053"
+    },
+    {
+      "path": "src/WarrantVaultDeployer.sol",
+      "sha256": "974894eca697bfe5f49234e431b20d4be64c2e72f1a38be5f85fcca7943fe1b5"
+    },
+    {
+      "path": "src/WarrantVaultFactory.sol",
+      "sha256": "269fe01b53a0f7a2ac7de6e7132b53de3eff9aae4dc90990fba300d8cc33ad12"
+    },
+    {
+      "path": "src/flap/IFlapTaxTokenV3.sol",
+      "sha256": "b15709f1a020c6313e866af08789d60ae204d32ef27f35b584d76a3ed0209217"
+    },
+    {
+      "path": "src/flap/IFlapTriggerService.sol",
+      "sha256": "7ae75a4b4e01a0360a8bb14daf249bd218feb2c39f3a47632c71b3edda5d3c54"
+    },
+    {
+      "path": "src/flap/IPortal.sol",
+      "sha256": "6de1991040667e4bf6e31db1d96d50b81a1e072378fed91beaca131f8683dcd9"
+    },
+    {
+      "path": "src/flap/ITaxProcessor.sol",
+      "sha256": "71e40cb919acb2bb026ac583aeb26b9a97c0c8619d6225e34feeb41dc120e9da"
+    },
+    {
+      "path": "src/flap/IVaultFactory.sol",
+      "sha256": "dbbf16232fbb2412104e61d08acc9a81ef2f781d74aec81c9d65ddefd2575166"
+    },
+    {
+      "path": "src/flap/IVaultPortal.sol",
+      "sha256": "cc984ea77386d6e12e9f90a0a7525aa990fca9229f3687fb75985ac241d11647"
+    },
+    {
+      "path": "src/flap/IVaultSchemasV1.sol",
+      "sha256": "d7bebb1438f34ecf81bf0990c0a21b95faa0d4ba09d2db33ce14e1a1747a5309"
+    },
+    {
+      "path": "src/flap/VaultBase.sol",
+      "sha256": "e437b3355fd4794ba95b3187fb17f11909106aea8a2d47b25fa330837f492872"
+    },
+    {
+      "path": "src/flap/VaultBaseV2.sol",
+      "sha256": "24dcf789837839b77b84786e92fa43e3814acb087d4cb282797317d15ace1865"
+    },
+    {
+      "path": "src/flap/VaultBaseV3.sol",
+      "sha256": "fef464be05a84cbb97d6b6d6b94403c51f9503914b940a85202f33ac4f0ca6bd"
+    },
+    {
+      "path": "src/flap/VaultFactoryBaseV2.sol",
+      "sha256": "64f43af2d008af9a6dd675fddd82f8c02e9a3861b0fe9734e5ac3aa080d2a710"
+    },
+    {
+      "path": "src/interfaces/IAttestationRegistry.sol",
+      "sha256": "540c18f6b2f8a37b941ee758ae0243870dce2e633c488f9a48d1edee7e032f01"
+    },
+    {
+      "path": "src/interfaces/IClearingPool.sol",
+      "sha256": "0b72182c4b0ca350b86e4588dc47fcc73414b529ba56ceafd0aaae440be931e1"
+    },
+    {
+      "path": "src/interfaces/IFlapPortalLens.sol",
+      "sha256": "5aa67fe44343fd8a7291424aac4a243dcbefaaf79a410373191371f7c332b7b9"
+    },
+    {
+      "path": "src/interfaces/IFrontendTokenInterfaces.sol",
+      "sha256": "8a04e1384cda87e2151f58029e21b5934934455f246d1b0e0ec821b84525c512"
+    },
+    {
+      "path": "src/interfaces/IIssuerGating.sol",
+      "sha256": "c9abe8b805ee3c3f94eec879f87ab135499666d65aec05173fa35329ab52059d"
+    },
+    {
+      "path": "src/interfaces/IVaultRegistry.sol",
+      "sha256": "329a5392d5eab5ddaa6eb8c238d5a42f4bbf13ae5c62a98674a359f80f40c565"
+    },
+    {
+      "path": "src/interfaces/IWarrant.sol",
+      "sha256": "13849c13e6cd173b51bd928a4c9aaab6b3c70af136f717c36fc7c30654418f49"
+    }
+  ],
+  "sourceSnapshotHash": "71fb98edd229d428e98852f9eac1b6b9f5cded58539c548822f41cca50418962"
+}

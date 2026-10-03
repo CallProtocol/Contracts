@@ -1,0 +1,11 @@
+# 🔴 version 0 的两段文本：文件字节就是链上哈希的原像。
+#
+# 任何行尾转换都会改变哈希。`-text` 让 git 逐字节存取，不做 CRLF 归一 ——
+# 否则在 core.autocrlf=true 的检出（Windows 默认）上，
+# `cast keccak "$(cat legal/attestation-v0/terms.en.txt)"` 会因为多出的 \r 得到另一个值，
+# 而「用户能自己复算哈希」正是这套机制的全部意义。见 legal/attestation-v0/README.md。
+legal/attestation-v0/*.txt -text
+
+# `IVaultFactory.sol` is an exact upstream snapshot. Its intentional final blank
+# line is covered by the pinned SHA-256 check, so do not normalize it at commit time.
+src/flap/IVaultFactory.sol whitespace=-blank-at-eof
