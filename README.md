@@ -10,10 +10,15 @@ Install Foundry, Python 3 and Git, then initialize the pinned dependencies:
 
 ```sh
 git submodule update --init --recursive
-forge build --sizes
+forge build src --sizes
 script/ci.sh --offline
 RPC_BSC='<archive endpoint>' script/ci.sh fork
 ```
+
+Frozen migration sources have existing `forge fmt --check` differences, including
+`src/ClearingPool.sol` and `test/fork/ForkConfigBsc.sol`. Default and offline gates
+continue reporting those failures. Standalone CI verifies behavior and interfaces
+while retaining the frozen source bytes.
 
 Solidity is fixed to 0.8.30, Cancun, optimizer 200 runs, and no metadata bytecode
 hash. Do not upgrade compiler or dependencies as part of repository migration.

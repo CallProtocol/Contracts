@@ -11,7 +11,7 @@ elif (( $# )); then groups=("$@"); fi
 for group in "${groups[@]}"; do
   case "$group" in
     fmt) forge fmt --check ;;
-    build) forge build --sizes ;;
+    build) forge build src --sizes ;;
     unit)
       forge test --no-match-path 'test/fork/*' -vv
       forge test --match-path 'test/fork/ForkConfigBsc.t.sol' -vv ;;
