@@ -1,0 +1,11 @@
+# CRITICAL version 0 The two paragraphs of the text: the byte of the document is the original image of the Hashi in the chain.
+#
+# Any end-of-the-line conversion will change Hashi.`-text` Jean. git Bytes access, no. CRLF Reunification  -
+# Or else it's in. core.autocrlf=true Checkout (%2)Windows On,
+# `cast keccak "$(cat legal/attestation-v0/terms.en.txt)"` It's gonna be more than enough. \r Get another value,
+# The whole point of the mechanism is that the user can recalculate the Hashi itself. legal/attestation-v0/README.md.
+legal/attestation-v0/*.txt -text
+
+# `IVaultFactory.sol` is an exact upstream snapshot. Its intentional final blank
+# line is covered by the pinned SHA-256 check, so do not normalize it at commit time.
+src/flap/IVaultFactory.sol whitespace=-blank-at-eof

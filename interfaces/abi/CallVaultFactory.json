@@ -1,0 +1,569 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "portal_",
+        "type": "address"
+      },
+      {
+        "internalType": "contract VaultRegistry",
+        "name": "registry_",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IClearingPool",
+        "name": "pool_",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "distributor_",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "wbnb_",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "commissionReceiver_",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "commissionReceiver",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "factorySpecVersion",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "quoteToken",
+        "type": "address"
+      }
+    ],
+    "name": "isQuoteTokenSupported",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "isVault",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "merkleDistributor",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "taxToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "quoteToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "creator",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "vaultData",
+        "type": "bytes"
+      }
+    ],
+    "name": "newVault",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "vault",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "name": "onBeforeLaunch",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "meta",
+            "type": "string"
+          },
+          {
+            "internalType": "enum IPortalCommonTypes.DexThreshType",
+            "name": "dexThresh",
+            "type": "uint8"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "salt",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "enum IPortalTypes.MigratorType",
+            "name": "migratorType",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "quoteToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "quoteAmt",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes",
+            "name": "permitData",
+            "type": "bytes"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "extensionID",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes",
+            "name": "extensionData",
+            "type": "bytes"
+          },
+          {
+            "internalType": "enum IPortalTypes.DEXId",
+            "name": "dexId",
+            "type": "uint8"
+          },
+          {
+            "internalType": "enum IPortalTypes.V3LPFeeProfile",
+            "name": "lpFeeProfile",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint16",
+            "name": "buyTaxRate",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "sellTaxRate",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint64",
+            "name": "taxDuration",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "antiFarmerDuration",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint16",
+            "name": "mktBps",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "deflationBps",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "dividendBps",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "lpBps",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint256",
+            "name": "minimumShareBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "dividendToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "commissionReceiver",
+            "type": "address"
+          },
+          {
+            "internalType": "enum IPortalTypes.TokenVersion",
+            "name": "tokenVersion",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "vaultFactory",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes",
+            "name": "vaultData",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct IVaultPortalTypes.NewTokenV6WithVaultParams",
+        "name": "p",
+        "type": "tuple"
+      }
+    ],
+    "name": "onBeforeNewTokenV6WithVault",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      },
+      {
+        "internalType": "string",
+        "name": "reason",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pool",
+    "outputs": [
+      {
+        "internalType": "contract IClearingPool",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "portal",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "registry",
+    "outputs": [
+      {
+        "internalType": "contract VaultRegistry",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "tokenCreationPolicies",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "target",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "operator",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes",
+            "name": "value",
+            "type": "bytes"
+          },
+          {
+            "internalType": "string",
+            "name": "description",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct FactoryPolicy[]",
+        "name": "policies",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "vaultDataSchema",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "components": [
+              {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "fieldType",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "internalType": "uint8",
+                "name": "decimals",
+                "type": "uint8"
+              }
+            ],
+            "internalType": "struct FieldDescriptor[]",
+            "name": "fields",
+            "type": "tuple[]"
+          },
+          {
+            "internalType": "bool",
+            "name": "isArray",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct VaultDataSchema",
+        "name": "schema",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "vaultDeployer",
+    "outputs": [
+      {
+        "internalType": "contract CallVaultDeployer",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "vaultPortal",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "vaultsCreated",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "wbnb",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "memeToken",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "vault",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "creator",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "quoteToken",
+        "type": "address"
+      }
+    ],
+    "name": "VaultCreated",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "LegacyV6ValidationHookNotImplemented",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyVaultPortal",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "chainId",
+        "type": "uint256"
+      }
+    ],
+    "name": "UnsupportedChain",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroAddress",
+    "type": "error"
+  }
+]
